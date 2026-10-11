@@ -1,0 +1,11 @@
+<botcomponent schemaname="jv_portfoliomanager_20260920_O3NltL.action.jv_stocktraderagent_5fcCLr_WajukPlu">
+  <componenttype>9</componenttype>
+  <description>Stock trading agent</description>
+  <iscustomizable>0</iscustomizable>
+  <name>StockTraderAgent_20260920</name>
+  <parentbotid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,11 @@
+<botcomponent schemaname="jv_superagent_eJOD8H.skill.watchlist-review_K17">
+  <componenttype>9</componenttype>
+  <description>Review a watchlist and rank which names deserve active attention, background monitoring, or removal based on catalysts, tradability, redundancy, and evidence quality for the user's style and timeframe.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>watchlist-review</name>
+  <parentbotid>
+    <schemaname>jv_superagent_eJOD8H</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,14 @@
+<botcomponent schemaname="jv_portfoliomanager_20260920_O3NltL.file.generatepdfpy_IWFob">
+  <componenttype>14</componenttype>
+  <filedata mimetype="application/octet-stream">generate_pdf.py</filedata>
+  <iscustomizable>0</iscustomizable>
+  <name>./scripts/generate_pdf.py</name>
+  <parentbotcomponentid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL.skill.pdf-generator_34a</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

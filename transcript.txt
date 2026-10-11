@@ -1,0 +1,195 @@
+CFO BRUNCH
+
+PORTFOLIO MANAGER 20261011
+
+Youtube video: https://youtu.be/D3e9zIIXh50
+
+PORTFOLIO
+Change the portfolio to maximize the win and minimize the risk
+Name,Ticker,Qty,Invested,P&L,P&L %
+Microsoft Corp.,US5949181045,131,56 538.47 USD,4 110.6 USD,+7.27%
+SAP AG ORD,DE0007164600,18,2 893.58 EUR,1 958.32 EUR,+67.68%
+ERSTE BANK AG,AT0000652011,45,2 156.5 EUR,1 018.25 EUR,+47.22%
+Berkshire Hathaway Inc. B,US0846707026,7,3 293.15 USD,192.78 USD,+5.85%
+Apple Inc.,US0378331005,16,2 832.18 USD,421.26 USD,+14.87%
+BNP PARIBAS,FR0000131104,30,1 853 EUR,463 EUR,+24.99%
+Amazon.Com Inc.,US0231351067,11,2 116.65 USD,146.16 USD,+6.91%
+Coca-Cola Co.,US1912161007,31,2 163.29 USD,43.6 USD,+2.02%
+Dominos Pizza Inc.,US25754A2015,4,1 694.46 USD,163.82 USD,+9.67%
+OTP,HU0000061726,22,264 105 HUF,327 255 HUF,+123.91%
+Pepsico Inc.,US7134481081,10,1 445.68 USD,-127.17 USD,-8.8%
+Bank of America,US0605051046,28,1 176.03 USD,75.01 USD,+6.38%
+Wal-Mart Stores Inc.,US9311421039,12,1 235.99 USD,-35.99 USD,-2.91%
+Advanced Micro Devices Ord Shs,US0079031078,10,911.2 USD,262.6 USD,+28.82%
+LOREAL,FR0000120321,2,893.9 EUR,-144.9 EUR,-16.21%
+Siemens Healthineers Ord Shs,DE000SHL1006,5,335.5 EUR,-104.55 EUR,-31.16%
+MERCEDES-BENZ GROUP N ORD,DE0007100000,4,293.68 EUR,-86.52 EUR,-29.46%
+HUGO BOSS N ORD,DE000A1PHFF7,4,198.88 EUR,-37.72 EUR,-18.97%
+Alphabet Inc - A Shares,US02079K3059,1,171.02 USD,-4.84 USD,-2.83%
+ABERCROMBIE AND FITCH CL A ORD,US0028962076,2,74.54 USD,79.22 USD,+106.28%
+DEUTSCHE BANK,DE0005140008,2,33.33 EUR,15.56 EUR,+46.68%
+MOL,HU0000153937,6,18 090 HUF,558 HUF,+3.08%
+Array Technologies Ord Shs,US04271T1007,1,18.21 USD,-11.2 USD,-61.5%
+
+# Create a professional report in PDF format (use your skill) to explain the portfolio update considering the changes. Use pie charts, diagrams and other visual elements to explain the updates.
+
+Return only a table containing the original portfolio and the proposal to sell, buy or replace to another stock.
+
+---
+Open up -  Visual Studio Code for the skills, Zoomit, M365 EMAIL
+GitHub repo: https://github.com/jovadker/Multi-Agent-PM-2026
+
+Create Solution with name StockTradingSolution_20261011 - set as default solution
+
+InvestorAgent
+Create an Agent "InvestorAgent_20261011"
+- Click on "Create Agent"
+- Model - GPT-6-Sol
+- Instructions:
+You are an investor with the name Investor Agent.
+Be very critical, challenge the ideas and ask for more details behind the reasoning by using the 5 WHY principals. Never say yes to the first proposal.
+Raise those questions with a clear and concise manner in the conversation, but do not answer them!
+Ask for What-if analysis and the expected outcome in 52 weeks.
+Your goal is to review the proposed stocks for investment purposes and evaluate the reasoning behind the stocks.
+Ask for alternative stocks if you are not convinced.
+Use reason, Wait and think step-by-step! Be very critical.
+Your ultimate goal is to maximize the return on investment and minimize the risk. Be very cautious with your decisions. Iterate multiple times do not agree on the proposal at first sight.
+If you agree with the final proposal and answers to your questions, state that it is approved, with the following message: "This proposal is approved."
+
+---
+
+StockTraderAgent_20261011
+Click in "Create Agent"
+- Model: Claude Sonnet
+ÿInstructions:
+You are a stock trader with the name Stock Trader Agent and with deep understanding of the stock markets. Your focus area is S&P 500 companies, Frankfurt stock exchange and the Hungarian stock exchange.
+Your goal is to propose stocks for investment purposes and to provide reasoning for your choices.
+To get the latest performance of the stocks, you must use the internet to search for analysts' recommendations like strongly buy, buy, hold and the 52-week target price.
+You're laser focused on the goal at hand. Use your watchlist skill.
+Don't waste time with chit-chat. Consider suggestions when refining an idea. Answer questions with a clear and concise manner. DO NOT RAISE ANY QUESTIONS.
+Here is the step-by-step flow that you must follow in sequential order and never miss any steps:
+Check every stock in the table for its current performance, 52-week outlook and analysts' recommendations by searching the internet
+Use reason to propose which one to sell and recommend well-performing other ones in the same sector by searching the internet
+Calculate the expected outcomes of each and every stock and investment fund in 52 weeks
+Always provide alternative stocks from different industries
+Create table containing the original stocks and the recommended stocks/alternatives with the following format:
+ÿ  |Stock name | Investment | Expected outcome in 52 weeks | Reasons to invest or sell |  Recommended alternative
+Provide a summary of the portfolio and the reasons for the changes
+Highlight the possible earnings on the portfolio
+When you receive approval, list the proposed stocks for investment.????ÿ
+
+- Set model to Claude-Sonnet-5
+- Add knowledge sources for trading sources:
+ÿ https://finance.yahoo.com  -- This knowledge source searches information on the web to find real-time stock and fund information
+ÿ https://www.msn.com/en-us/money -- This knowledge source searches information on the web to find real-time stock and fund information
+Add skill watchlist from c:\Codes\_____CFOBrunch\watchlist-review.zip
+Watchlist is available from an opensource GitHub repo - https://github.com/marian2js/trading-skills
+- Publish Agent
+
+---
+
+PortfolioManagerAgent_20261011
+- Click on "Create Agent" - Solution Explorer
+- Add both agents to the portfolio manager
+ÿ - StockTraderAgent_20261011 --- "Stock trading agent"
+ÿ - InvestorAgent_20261011 --- "Investor Agent representing the client"
+- Instruction:
+You are a portfolio manager with the name PortfolioManager. You use the trader ( StockTraderAgent  ) and investor ( InvestorAgent  ) agents to analyze and recommend portfolio changes. You wait for their consensus on the proposed investments.
+You don't provide evaluation, explanations or reasoning for the proposed investments. You are the facilitator. You never ask back for more information.
+
+Use the list of stocks you receive and follow the process below sequentially:
+Determine which agent takes the next turn in the conversation.
+Instruct the agent to take the next turn and wait for the agent's response.
+No agent should take more than one turn in a row.
+Maintain the original table received
+
+Choose only from these agents:
+StockTraderAgent
+InvestorAgent
+
+Always follow these rules when selecting the next agent:
+After  StockTraderAgent  , it is InvestorAgent  's turn.
+After InvestorAgent   , it is StockTraderAgent 's turn.
+
+At least there must be three turnovers between the two agents.
+
+At the end of the conversation when InvestorAgent accepted the proposal or you reached the 10 iterations, it is your turn to summarize the results with detailed explanation and reasoning and provide the answer back to the user IN TABULAR FORMAT containing the original portfolio elements as well.
+FINISH AFTER 10 ITERATIONS. DO NOT ESCALATE TO LIVE REPRESENTATIVE JUST PROVIDE THE DETAILED SUMMARY.?
+
+add skills - pdf-generator and portfolio-complexity 
+- publish agent
+
+- test the agent
+
+Change the portfolio to maximize the win and minimize the risk
+Name,Ticker,Qty,Invested,P&L,P&L %
+Microsoft Corp.,US5949181045,131,56 538.47 USD,4 110.6 USD,+7.27%
+SAP AG ORD,DE0007164600,18,2 893.58 EUR,1 958.32 EUR,+67.68%
+ERSTE BANK AG,AT0000652011,45,2 156.5 EUR,1 018.25 EUR,+47.22%
+Berkshire Hathaway Inc. B,US0846707026,7,3 293.15 USD,192.78 USD,+5.85%
+Apple Inc.,US0378331005,16,2 832.18 USD,421.26 USD,+14.87%
+BNP PARIBAS,FR0000131104,30,1 853 EUR,463 EUR,+24.99%
+Amazon.Com Inc.,US0231351067,11,2 116.65 USD,146.16 USD,+6.91%
+Coca-Cola Co.,US1912161007,31,2 163.29 USD,43.6 USD,+2.02%
+Dominos Pizza Inc.,US25754A2015,4,1 694.46 USD,163.82 USD,+9.67%
+OTP,HU0000061726,22,264 105 HUF,327 255 HUF,+123.91%
+Pepsico Inc.,US7134481081,10,1 445.68 USD,-127.17 USD,-8.8%
+Bank of America,US0605051046,28,1 176.03 USD,75.01 USD,+6.38%
+Wal-Mart Stores Inc.,US9311421039,12,1 235.99 USD,-35.99 USD,-2.91%
+Advanced Micro Devices Ord Shs,US0079031078,10,911.2 USD,262.6 USD,+28.82%
+LOREAL,FR0000120321,2,893.9 EUR,-144.9 EUR,-16.21%
+Siemens Healthineers Ord Shs,DE000SHL1006,5,335.5 EUR,-104.55 EUR,-31.16%
+MERCEDES-BENZ GROUP N ORD,DE0007100000,4,293.68 EUR,-86.52 EUR,-29.46%
+HUGO BOSS N ORD,DE000A1PHFF7,4,198.88 EUR,-37.72 EUR,-18.97%
+Alphabet Inc - A Shares,US02079K3059,1,171.02 USD,-4.84 USD,-2.83%
+ABERCROMBIE AND FITCH CL A ORD,US0028962076,2,74.54 USD,79.22 USD,+106.28%
+DEUTSCHE BANK,DE0005140008,2,33.33 EUR,15.56 EUR,+46.68%
+MOL,HU0000153937,6,18 090 HUF,558 HUF,+3.08%
+Array Technologies Ord Shs,US04271T1007,1,18.21 USD,-11.2 USD,-61.5%
+
+Return only a table containing the original portfolio and the proposal to sell, buy or replace to another stock.
+
+----
+Add Email sending:
+
+Add Email sending capability
+
+Change the portfolio to maximize the win and minimize the risk based on the portfolio complexity (use the skill to determine):
+Name,Ticker,Qty,Invested,P&L,P&L %
+Microsoft Corp.,US5949181045,131,56 538.47 USD,4 110.6 USD,+7.27%
+SAP AG ORD,DE0007164600,18,2 893.58 EUR,1 958.32 EUR,+67.68%
+ERSTE BANK AG,AT0000652011,45,2 156.5 EUR,1 018.25 EUR,+47.22%
+Berkshire Hathaway Inc. B,US0846707026,7,3 293.15 USD,192.78 USD,+5.85%
+Apple Inc.,US0378331005,16,2 832.18 USD,421.26 USD,+14.87%
+BNP PARIBAS,FR0000131104,30,1 853 EUR,463 EUR,+24.99%
+Amazon.Com Inc.,US0231351067,11,2 116.65 USD,146.16 USD,+6.91%
+Coca-Cola Co.,US1912161007,31,2 163.29 USD,43.6 USD,+2.02%
+Dominos Pizza Inc.,US25754A2015,4,1 694.46 USD,163.82 USD,+9.67%
+OTP,HU0000061726,22,264 105 HUF,327 255 HUF,+123.91%
+Pepsico Inc.,US7134481081,10,1 445.68 USD,-127.17 USD,-8.8%
+Bank of America,US0605051046,28,1 176.03 USD,75.01 USD,+6.38%
+Wal-Mart Stores Inc.,US9311421039,12,1 235.99 USD,-35.99 USD,-2.91%
+Advanced Micro Devices Ord Shs,US0079031078,10,911.2 USD,262.6 USD,+28.82%
+LOREAL,FR0000120321,2,893.9 EUR,-144.9 EUR,-16.21%
+Siemens Healthineers Ord Shs,DE000SHL1006,5,335.5 EUR,-104.55 EUR,-31.16%
+MERCEDES-BENZ GROUP N ORD,DE0007100000,4,293.68 EUR,-86.52 EUR,-29.46%
+HUGO BOSS N ORD,DE000A1PHFF7,4,198.88 EUR,-37.72 EUR,-18.97%
+Alphabet Inc - A Shares,US02079K3059,1,171.02 USD,-4.84 USD,-2.83%
+ABERCROMBIE AND FITCH CL A ORD,US0028962076,2,74.54 USD,79.22 USD,+106.28%
+DEUTSCHE BANK,DE0005140008,2,33.33 EUR,15.56 EUR,+46.68%
+MOL,HU0000153937,6,18 090 HUF,558 HUF,+3.08%
+Array Technologies Ord Shs,US04271T1007,1,18.21 USD,-11.2 USD,-61.5%
+
+Create a professional report in PDF format (use your skill) to explain the portfolio update considering the changes. Use pie charts, diagrams and other visual elements to explain the updates.
+Send the summary of the PDF document to jovadker@microsoft.com (do not attach the PDF itself).
+
+---
+Autonomous Mode:
+Create a Workflow
+- Create trigger - Recuring
+add PortfolioManager Agent wih the appropriate prompt
+
+
+SuperAgent:
+
+

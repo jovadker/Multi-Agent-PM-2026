@@ -1,0 +1,14 @@
+<botcomponent schemaname="jv_superagent_eJOD8H.file.generatepdfcpython312pyc_jNZ2z">
+  <componenttype>14</componenttype>
+  <filedata mimetype="application/octet-stream">generate_pdf.cpython-312.pyc</filedata>
+  <iscustomizable>0</iscustomizable>
+  <name>./scripts/__pycache__/generate_pdf.cpython-312.pyc</name>
+  <parentbotcomponentid>
+    <schemaname>jv_superagent_eJOD8H.skill.pdf-generator_Ka4</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jv_superagent_eJOD8H</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

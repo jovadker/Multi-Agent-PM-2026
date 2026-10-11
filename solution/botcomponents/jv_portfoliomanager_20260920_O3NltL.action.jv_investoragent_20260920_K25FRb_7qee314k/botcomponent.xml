@@ -1,0 +1,11 @@
+<botcomponent schemaname="jv_portfoliomanager_20260920_O3NltL.action.jv_investoragent_20260920_K25FRb_7qee314k">
+  <componenttype>9</componenttype>
+  <description>Investor Agent representing the client</description>
+  <iscustomizable>0</iscustomizable>
+  <name>InvestorAgent_20260920</name>
+  <parentbotid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

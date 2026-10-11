@@ -1,0 +1,14 @@
+<botcomponent schemaname="jv_stocktraderagent_5fcCLr.file.skillmd_wO40V">
+  <componenttype>14</componenttype>
+  <filedata mimetype="application/octet-stream">SKILL.md</filedata>
+  <iscustomizable>0</iscustomizable>
+  <name>./SKILL.md</name>
+  <parentbotcomponentid>
+    <schemaname>jv_stocktraderagent_5fcCLr.skill.watchlist-review_zgm</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jv_stocktraderagent_5fcCLr</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

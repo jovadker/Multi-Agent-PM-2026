@@ -1,0 +1,11 @@
+<botcomponent schemaname="jv_portfoliomanager_20260920_O3NltL.skill.portfolio-complexity_V_i">
+  <componenttype>9</componenttype>
+  <description>Classifies an investment portfolio as Stable, Conservative, Balanced, or Dynamic from typed allocation percentages or an uploaded allocation chart. Use when a user asks to determine portfolio complexity, risk profile, model-portfolio fit, or compare an allocation with the four reference portfolios.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>portfolio-complexity</name>
+  <parentbotid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

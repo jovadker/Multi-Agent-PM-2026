@@ -1,0 +1,14 @@
+<botcomponent schemaname="jv_superagent_eJOD8H.file.modelportfoliosmd_uI_BX">
+  <componenttype>14</componenttype>
+  <filedata mimetype="application/octet-stream">model-portfolios.md</filedata>
+  <iscustomizable>0</iscustomizable>
+  <name>./references/model-portfolios.md</name>
+  <parentbotcomponentid>
+    <schemaname>jv_superagent_eJOD8H.skill.portfolio-complexity_-RR</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jv_superagent_eJOD8H</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,14 @@
+<botcomponent schemaname="jv_portfoliomanager_20260920_O3NltL.file.requirementstxt_MqEA0">
+  <componenttype>14</componenttype>
+  <filedata mimetype="text/plain">requirements.txt</filedata>
+  <iscustomizable>0</iscustomizable>
+  <name>./requirements.txt</name>
+  <parentbotcomponentid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL.skill.pdf-generator_34a</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,5 @@
+kind: ConnectedAgentTool
+historyType:
+  kind: ConversationHistory
+
+botSchemaName: jv_stocktraderagent_5fcCLr

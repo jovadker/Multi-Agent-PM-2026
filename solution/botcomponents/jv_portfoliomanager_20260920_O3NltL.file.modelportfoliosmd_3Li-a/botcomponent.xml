@@ -1,0 +1,14 @@
+<botcomponent schemaname="jv_portfoliomanager_20260920_O3NltL.file.modelportfoliosmd_3Li-a">
+  <componenttype>14</componenttype>
+  <filedata mimetype="application/octet-stream">model-portfolios.md</filedata>
+  <iscustomizable>0</iscustomizable>
+  <name>./references/model-portfolios.md</name>
+  <parentbotcomponentid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL.skill.portfolio-complexity_V_i</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

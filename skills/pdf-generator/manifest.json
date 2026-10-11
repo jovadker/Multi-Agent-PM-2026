@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.28/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.28",
+  "version": "1.0.0",
+  "id": "087bc398-6f75-4671-87a9-91b42f0f7a75",
+  "developer": {
+    "name": "PDF Generator Skill",
+    "websiteUrl": "https://example.com",
+    "privacyUrl": "https://example.com/privacy",
+    "termsOfUseUrl": "https://example.com/terms"
+  },
+  "name": {
+    "short": "PDF Generator",
+    "full": "Python PDF Generator for Microsoft Copilot Cowork"
+  },
+  "description": {
+    "short": "Create polished PDF documents from Markdown or plain text",
+    "full": "A Microsoft Copilot Cowork skill that uses a bundled Python utility to generate styled PDF documents from Markdown or plain text, with headers, footers, metadata, page sizing, and configurable colors."
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "accentColor": "#2457A6",
+  "agentSkills": [
+    {
+      "folder": "./skills/pdf-generator"
+    }
+  ]
+}

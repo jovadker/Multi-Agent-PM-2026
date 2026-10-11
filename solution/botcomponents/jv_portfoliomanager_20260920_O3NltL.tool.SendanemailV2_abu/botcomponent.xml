@@ -1,0 +1,11 @@
+<botcomponent schemaname="jv_portfoliomanager_20260920_O3NltL.tool.SendanemailV2_abu">
+  <componenttype>9</componenttype>
+  <description>This operation sends an email message.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Send an email (V2)</name>
+  <parentbotid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

@@ -1,0 +1,14 @@
+<botcomponent schemaname="jv_portfoliomanager_20260920_O3NltL.file.skillmd_di_98">
+  <componenttype>14</componenttype>
+  <filedata mimetype="application/octet-stream">SKILL.md</filedata>
+  <iscustomizable>0</iscustomizable>
+  <name>./SKILL.md</name>
+  <parentbotcomponentid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL.skill.pdf-generator_34a</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jv_portfoliomanager_20260920_O3NltL</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

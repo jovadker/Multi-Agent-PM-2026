@@ -1,0 +1,16 @@
+version: v1.11
+
+package:
+  - uses: teamsApp/validateManifest
+    with:
+      manifestPath: ./manifest.json
+
+  - uses: teamsApp/zipAppPackage
+    with:
+      manifestPath: ./manifest.json
+      outputZipPath: ./build/pdf-generator-cowork.zip
+      outputFolder: ./build
+
+  - uses: teamsApp/validateAppPackage
+    with:
+      appPackagePath: ./build/pdf-generator-cowork.zip

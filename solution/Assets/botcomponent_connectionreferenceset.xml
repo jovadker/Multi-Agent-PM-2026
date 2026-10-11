@@ -1,0 +1,8 @@
+<botcomponent_connectionreferenceset>
+  <botcomponent_connectionreference botcomponentid.schemaname="jv_portfoliomanager_20260920_O3NltL.tool.SendanemailV2_abu" connectionreferenceid.connectionreferencelogicalname="jv_portfoliomanager_20260920_O3NltL.cr.shared_office365.86ac61f8-ba35-49fc-9699-84c694f5f0cc">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+  <botcomponent_connectionreference botcomponentid.schemaname="jv_superagent_eJOD8H.tool.SendanemailV2_dEZ" connectionreferenceid.connectionreferencelogicalname="jv_superagent_eJOD8H.cr.shared_office365.shared-office365-86ac61f8-ba35-49fc-9699-84c694f5f0cc">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_connectionreference>
+</botcomponent_connectionreferenceset>

@@ -1,0 +1,11 @@
+<botcomponent schemaname="jv_stocktraderagent_5fcCLr.httpsfinanceyahoocom_GuGlOH9PUHSHNxi4QUdj3">
+  <componenttype>16</componenttype>
+  <description>This knowledge source searches information on the web to find real-time stock and fund information</description>
+  <iscustomizable>0</iscustomizable>
+  <name>https://finance.yahoo.com</name>
+  <parentbotid>
+    <schemaname>jv_stocktraderagent_5fcCLr</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

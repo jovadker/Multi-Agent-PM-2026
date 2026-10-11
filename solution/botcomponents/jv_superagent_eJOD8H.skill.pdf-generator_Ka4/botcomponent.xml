@@ -1,0 +1,11 @@
+<botcomponent schemaname="jv_superagent_eJOD8H.skill.pdf-generator_Ka4">
+  <componenttype>9</componenttype>
+  <description>Generate polished PDF documents from Markdown or plain text with Python. Use when the user asks Cowork to create, export, render, or save a report, brief, letter, proposal, notes, or other content as a PDF.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>pdf-generator</name>
+  <parentbotid>
+    <schemaname>jv_superagent_eJOD8H</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

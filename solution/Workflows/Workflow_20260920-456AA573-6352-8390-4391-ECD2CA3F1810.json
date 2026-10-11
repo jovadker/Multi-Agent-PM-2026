@@ -1,0 +1,228 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_agentnode": {
+        "api": {
+          "name": "shared_agentnode"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedagentnode_01ba11c7"
+        },
+        "runtimeSource": "embedded",
+        "connectionName": "shared-agentnode-fb5d7276-ea70-40aa-a032-4a89585ad620"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "type": "Recurrence",
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "startTime": "2026-09-21T10:53:00Z",
+            "schedule": {
+              "hours": [
+                9
+              ],
+              "minutes": [
+                0
+              ]
+            }
+          },
+          "metadata": {
+            "associatedData": {
+              "graph": {
+                "name": "Workflow_20260920",
+                "nodes": [
+                  {
+                    "id": "start-7390c780-3e33-4fcb-980d-71cb65f79769",
+                    "name": "Recurrence",
+                    "type": "start",
+                    "version": 1,
+                    "position": {
+                      "x": 197,
+                      "y": 357.5
+                    },
+                    "data": {
+                      "config": {
+                        "triggerType": "recurrence",
+                        "recurrence": {
+                          "frequency": "Day",
+                          "interval": 1,
+                          "hours": [
+                            9
+                          ],
+                          "minutes": [
+                            0
+                          ],
+                          "startTime": "2026-09-21T10:53:00Z"
+                        }
+                      },
+                      "outcomes": [
+                        {
+                          "id": "default",
+                          "label": "Default",
+                          "outcomeSchema": {
+                            "type": "object",
+                            "properties": {
+                              "triggerTime": {
+                                "type": "string",
+                                "description": "ISO timestamp when the recurrence triggered"
+                              },
+                              "scheduledTime": {
+                                "type": "string",
+                                "description": "The scheduled time for this occurrence"
+                              }
+                            },
+                            "required": [
+                              "triggerTime",
+                              "scheduledTime"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "measured": {
+                      "width": 240,
+                      "height": 66
+                    },
+                    "selected": false
+                  },
+                  {
+                    "id": "agent-07a13a38-d70c-4b99-bed0-2ab56c3ff093",
+                    "name": "Agent",
+                    "type": "agent",
+                    "version": 1,
+                    "position": {
+                      "x": 641,
+                      "y": 317.75
+                    },
+                    "data": {
+                      "config": {
+                        "mode": "invoke",
+                        "instructions": "Change the portfolio to maximize the win and minimize the risk\nName,Ticker,Qty,Invested,P&L,P&L %\nMicrosoft Corp.,US5949181045,131,56 538.47 USD,4 110.6 USD,+7.27%\nSAP AG ORD,DE0007164600,18,2 893.58 EUR,1 958.32 EUR,+67.68%\nERSTE BANK AG,AT0000652011,45,2 156.5 EUR,1 018.25 EUR,+47.22%\nBerkshire Hathaway Inc. B,US0846707026,7,3 293.15 USD,192.78 USD,+5.85%\nApple Inc.,US0378331005,16,2 832.18 USD,421.26 USD,+14.87%\nBNP PARIBAS,FR0000131104,30,1 853 EUR,463 EUR,+24.99%\nAmazon.Com Inc.,US0231351067,11,2 116.65 USD,146.16 USD,+6.91%\nCoca-Cola Co.,US1912161007,31,2 163.29 USD,43.6 USD,+2.02%\nDominos Pizza Inc.,US25754A2015,4,1 694.46 USD,163.82 USD,+9.67%\nOTP,HU0000061726,22,264 105 HUF,327 255 HUF,+123.91%\nPepsico Inc.,US7134481081,10,1 445.68 USD,-127.17 USD,-8.8%\nBank of America,US0605051046,28,1 176.03 USD,75.01 USD,+6.38%\nWal-Mart Stores Inc.,US9311421039,12,1 235.99 USD,-35.99 USD,-2.91%\nAdvanced Micro Devices Ord Shs,US0079031078,10,911.2 USD,262.6 USD,+28.82%\nLOREAL,FR0000120321,2,893.9 EUR,-144.9 EUR,-16.21%\nSiemens Healthineers Ord Shs,DE000SHL1006,5,335.5 EUR,-104.55 EUR,-31.16%\nMERCEDES-BENZ GROUP N ORD,DE0007100000,4,293.68 EUR,-86.52 EUR,-29.46%\nHUGO BOSS N ORD,DE000A1PHFF7,4,198.88 EUR,-37.72 EUR,-18.97%\nAlphabet Inc - A Shares,US02079K3059,1,171.02 USD,-4.84 USD,-2.83%\nABERCROMBIE AND FITCH CL A ORD,US0028962076,2,74.54 USD,79.22 USD,+106.28%\nDEUTSCHE BANK,DE0005140008,2,33.33 EUR,15.56 EUR,+46.68%\nMOL,HU0000153937,6,18 090 HUF,558 HUF,+3.08%\nArray Technologies Ord Shs,US04271T1007,1,18.21 USD,-11.2 USD,-61.5%\n\n",
+                        "botSchemaName": "jv_stocktraderagent_5fcCLr",
+                        "isHitlEscalationEnabled": false,
+                        "webSearchEnabled": false,
+                        "inlineInstructions": "",
+                        "outputMode": "text",
+                        "inlineModel": "claude-opus-5",
+                        "connectionName": "shared_agentnode",
+                        "instructionsRich": {
+                          "segments": [
+                            {
+                              "type": "static",
+                              "value": "Change the portfolio to maximize the win and minimize the risk\nName,Ticker,Qty,Invested,P&L,P&L %\nMicrosoft Corp.,US5949181045,131,56 538.47 USD,4 110.6 USD,+7.27%\nSAP AG ORD,DE0007164600,18,2 893.58 EUR,1 958.32 EUR,+67.68%\nERSTE BANK AG,AT0000652011,45,2 156.5 EUR,1 018.25 EUR,+47.22%\nBerkshire Hathaway Inc. B,US0846707026,7,3 293.15 USD,192.78 USD,+5.85%\nApple Inc.,US0378331005,16,2 832.18 USD,421.26 USD,+14.87%\nBNP PARIBAS,FR0000131104,30,1 853 EUR,463 EUR,+24.99%\nAmazon.Com Inc.,US0231351067,11,2 116.65 USD,146.16 USD,+6.91%\nCoca-Cola Co.,US1912161007,31,2 163.29 USD,43.6 USD,+2.02%\nDominos Pizza Inc.,US25754A2015,4,1 694.46 USD,163.82 USD,+9.67%\nOTP,HU0000061726,22,264 105 HUF,327 255 HUF,+123.91%\nPepsico Inc.,US7134481081,10,1 445.68 USD,-127.17 USD,-8.8%\nBank of America,US0605051046,28,1 176.03 USD,75.01 USD,+6.38%\nWal-Mart Stores Inc.,US9311421039,12,1 235.99 USD,-35.99 USD,-2.91%\nAdvanced Micro Devices Ord Shs,US0079031078,10,911.2 USD,262.6 USD,+28.82%\nLOREAL,FR0000120321,2,893.9 EUR,-144.9 EUR,-16.21%\nSiemens Healthineers Ord Shs,DE000SHL1006,5,335.5 EUR,-104.55 EUR,-31.16%\nMERCEDES-BENZ GROUP N ORD,DE0007100000,4,293.68 EUR,-86.52 EUR,-29.46%\nHUGO BOSS N ORD,DE000A1PHFF7,4,198.88 EUR,-37.72 EUR,-18.97%\nAlphabet Inc - A Shares,US02079K3059,1,171.02 USD,-4.84 USD,-2.83%\nABERCROMBIE AND FITCH CL A ORD,US0028962076,2,74.54 USD,79.22 USD,+106.28%\nDEUTSCHE BANK,DE0005140008,2,33.33 EUR,15.56 EUR,+46.68%\nMOL,HU0000153937,6,18 090 HUF,558 HUF,+3.08%\nArray Technologies Ord Shs,US04271T1007,1,18.21 USD,-11.2 USD,-61.5%\n\n"
+                            }
+                          ]
+                        }
+                      },
+                      "outcomes": [
+                        {
+                          "id": "default",
+                          "label": "Default",
+                          "outcomeSchema": {
+                            "type": "object",
+                            "properties": {
+                              "result": {
+                                "type": "string",
+                                "description": "The agent response text"
+                              },
+                              "status": {
+                                "type": "string",
+                                "description": "The completion status (e.g., Completed)"
+                              },
+                              "conversationId": {
+                                "type": "string",
+                                "description": "Unique identifier for the conversation"
+                              }
+                            },
+                            "required": [
+                              "result",
+                              "conversationId"
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "measured": {
+                      "width": 240,
+                      "height": 66
+                    },
+                    "selected": false
+                  }
+                ],
+                "edges": [
+                  {
+                    "id": "edge-start-7390c780-3e33-4fcb-980d-71cb65f79769-agent-07a13a38-d70c-4b99-bed0-2ab56c3ff093-input",
+                    "source": "start-7390c780-3e33-4fcb-980d-71cb65f79769",
+                    "target": "agent-07a13a38-d70c-4b99-bed0-2ab56c3ff093",
+                    "targetHandle": "input"
+                  }
+                ],
+                "connectionReferences": {
+                  "shared_agentnode": {
+                    "api": {
+                      "name": "shared_agentnode"
+                    },
+                    "connection": {
+                      "connectionReferenceLogicalName": "new_sharedagentnode_01ba11c7"
+                    },
+                    "runtimeSource": "embedded",
+                    "connectionName": "shared-agentnode-fb5d7276-ea70-40aa-a032-4a89585ad620"
+                  }
+                }
+              },
+              "nodeActionMapping": {
+                "agent-07a13a38-d70c-4b99-bed0-2ab56c3ff093": [
+                  "Agent"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "actions": {
+        "Agent": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "body/prompt": "Change the portfolio to maximize the win and minimize the risk\nName,Ticker,Qty,Invested,P&L,P&L %\nMicrosoft Corp.,US5949181045,131,56 538.47 USD,4 110.6 USD,+7.27%\nSAP AG ORD,DE0007164600,18,2 893.58 EUR,1 958.32 EUR,+67.68%\nERSTE BANK AG,AT0000652011,45,2 156.5 EUR,1 018.25 EUR,+47.22%\nBerkshire Hathaway Inc. B,US0846707026,7,3 293.15 USD,192.78 USD,+5.85%\nApple Inc.,US0378331005,16,2 832.18 USD,421.26 USD,+14.87%\nBNP PARIBAS,FR0000131104,30,1 853 EUR,463 EUR,+24.99%\nAmazon.Com Inc.,US0231351067,11,2 116.65 USD,146.16 USD,+6.91%\nCoca-Cola Co.,US1912161007,31,2 163.29 USD,43.6 USD,+2.02%\nDominos Pizza Inc.,US25754A2015,4,1 694.46 USD,163.82 USD,+9.67%\nOTP,HU0000061726,22,264 105 HUF,327 255 HUF,+123.91%\nPepsico Inc.,US7134481081,10,1 445.68 USD,-127.17 USD,-8.8%\nBank of America,US0605051046,28,1 176.03 USD,75.01 USD,+6.38%\nWal-Mart Stores Inc.,US9311421039,12,1 235.99 USD,-35.99 USD,-2.91%\nAdvanced Micro Devices Ord Shs,US0079031078,10,911.2 USD,262.6 USD,+28.82%\nLOREAL,FR0000120321,2,893.9 EUR,-144.9 EUR,-16.21%\nSiemens Healthineers Ord Shs,DE000SHL1006,5,335.5 EUR,-104.55 EUR,-31.16%\nMERCEDES-BENZ GROUP N ORD,DE0007100000,4,293.68 EUR,-86.52 EUR,-29.46%\nHUGO BOSS N ORD,DE000A1PHFF7,4,198.88 EUR,-37.72 EUR,-18.97%\nAlphabet Inc - A Shares,US02079K3059,1,171.02 USD,-4.84 USD,-2.83%\nABERCROMBIE AND FITCH CL A ORD,US0028962076,2,74.54 USD,79.22 USD,+106.28%\nDEUTSCHE BANK,DE0005140008,2,33.33 EUR,15.56 EUR,+46.68%\nMOL,HU0000153937,6,18 090 HUF,558 HUF,+3.08%\nArray Technologies Ord Shs,US04271T1007,1,18.21 USD,-11.2 USD,-61.5%\n\n",
+              "body/agentId": "jv_stocktraderagent_5fcCLr"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_agentnode",
+              "connectionName": "shared_agentnode",
+              "operationId": "InvokeAgent"
+            }
+          },
+          "metadata": {
+            "description": "Agent",
+            "nodeId": "agent-07a13a38-d70c-4b99-bed0-2ab56c3ff093"
+          }
+        }
+      },
+      "outputs": {},
+      "metadata": {
+        "telemetryMetadata": {
+          "creationSource": "WorkflowDesigner",
+          "modifiedSources": "WorkflowDesigner"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

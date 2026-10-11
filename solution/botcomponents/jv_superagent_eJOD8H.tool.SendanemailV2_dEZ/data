@@ -1,0 +1,5 @@
+kind: ConnectorTool
+authMode: Maker
+connectionReference: jv_superagent_eJOD8H.cr.shared_office365.shared-office365-86ac61f8-ba35-49fc-9699-84c694f5f0cc
+connectorId: /providers/Microsoft.PowerApps/apis/shared_office365
+operationId: SendEmailV2

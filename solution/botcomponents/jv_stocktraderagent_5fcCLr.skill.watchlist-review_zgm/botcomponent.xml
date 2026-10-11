@@ -1,0 +1,11 @@
+<botcomponent schemaname="jv_stocktraderagent_5fcCLr.skill.watchlist-review_zgm">
+  <componenttype>9</componenttype>
+  <description>Review a watchlist and rank which names deserve active attention, background monitoring, or removal based on catalysts, tradability, redundancy, and evidence quality for the user's style and timeframe.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>watchlist-review</name>
+  <parentbotid>
+    <schemaname>jv_stocktraderagent_5fcCLr</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

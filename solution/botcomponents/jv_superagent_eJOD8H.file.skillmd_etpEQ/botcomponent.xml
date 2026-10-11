@@ -1,0 +1,14 @@
+<botcomponent schemaname="jv_superagent_eJOD8H.file.skillmd_etpEQ">
+  <componenttype>14</componenttype>
+  <filedata mimetype="application/octet-stream">SKILL.md</filedata>
+  <iscustomizable>0</iscustomizable>
+  <name>./watchlist-review/SKILL.md</name>
+  <parentbotcomponentid>
+    <schemaname>jv_superagent_eJOD8H.skill.watchlist-review_K17</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>jv_superagent_eJOD8H</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

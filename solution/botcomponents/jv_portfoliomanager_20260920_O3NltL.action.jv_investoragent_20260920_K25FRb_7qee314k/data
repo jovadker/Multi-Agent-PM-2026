@@ -1,0 +1,5 @@
+kind: ConnectedAgentTool
+historyType:
+  kind: ConversationHistory
+
+botSchemaName: jv_investoragent_20260920_K25FRb
