@@ -1,0 +1,4 @@
+Change the portfolio to maximize the win and minimize the risk
+Name,Ticker,Qty,Invested,P&L,P&L %
+Microsoft Corp.,US5949181045,131,56 538.47 USD,4 110.6 USD,+7.27%
+SAP AG ORD,DE0007164600,18,2 893.58 EUR,1 958.32 EUR,+67.68%

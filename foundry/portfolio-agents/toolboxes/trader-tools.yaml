@@ -1,0 +1,5 @@
+name: trader-tools
+description: Web search for analyst recommendations and 52-week targets (prefer finance.yahoo.com and msn.com/money).
+tools:
+  - type: web_search
+    name: web_search

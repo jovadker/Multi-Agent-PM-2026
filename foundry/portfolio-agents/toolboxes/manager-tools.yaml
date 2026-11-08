@@ -1,0 +1,4 @@
+name: manager-tools
+description: Microsoft 365 Outlook mail (Work IQ Mail MCP) used by the portfolio manager to send the report summary.
+connections:
+  - name: outlook-mail-conn

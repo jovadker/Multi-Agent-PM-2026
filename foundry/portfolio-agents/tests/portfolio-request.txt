@@ -1,0 +1,28 @@
+Change the portfolio to maximize the win and minimize the risk based on the portfolio complexity (use the skill to determine):
+Name,Ticker,Qty,Invested,P&L,P&L %
+Microsoft Corp.,US5949181045,131,56 538.47 USD,4 110.6 USD,+7.27%
+SAP AG ORD,DE0007164600,18,2 893.58 EUR,1 958.32 EUR,+67.68%
+ERSTE BANK AG,AT0000652011,45,2 156.5 EUR,1 018.25 EUR,+47.22%
+Berkshire Hathaway Inc. B,US0846707026,7,3 293.15 USD,192.78 USD,+5.85%
+Apple Inc.,US0378331005,16,2 832.18 USD,421.26 USD,+14.87%
+BNP PARIBAS,FR0000131104,30,1 853 EUR,463 EUR,+24.99%
+Amazon.Com Inc.,US0231351067,11,2 116.65 USD,146.16 USD,+6.91%
+Coca-Cola Co.,US1912161007,31,2 163.29 USD,43.6 USD,+2.02%
+Dominos Pizza Inc.,US25754A2015,4,1 694.46 USD,163.82 USD,+9.67%
+OTP,HU0000061726,22,264 105 HUF,327 255 HUF,+123.91%
+Pepsico Inc.,US7134481081,10,1 445.68 USD,-127.17 USD,-8.8%
+Bank of America,US0605051046,28,1 176.03 USD,75.01 USD,+6.38%
+Wal-Mart Stores Inc.,US9311421039,12,1 235.99 USD,-35.99 USD,-2.91%
+Advanced Micro Devices Ord Shs,US0079031078,10,911.2 USD,262.6 USD,+28.82%
+LOREAL,FR0000120321,2,893.9 EUR,-144.9 EUR,-16.21%
+Siemens Healthineers Ord Shs,DE000SHL1006,5,335.5 EUR,-104.55 EUR,-31.16%
+MERCEDES-BENZ GROUP N ORD,DE0007100000,4,293.68 EUR,-86.52 EUR,-29.46%
+HUGO BOSS N ORD,DE000A1PHFF7,4,198.88 EUR,-37.72 EUR,-18.97%
+Alphabet Inc - A Shares,US02079K3059,1,171.02 USD,-4.84 USD,-2.83%
+ABERCROMBIE AND FITCH CL A ORD,US0028962076,2,74.54 USD,79.22 USD,+106.28%
+DEUTSCHE BANK,DE0005140008,2,33.33 EUR,15.56 EUR,+46.68%
+MOL,HU0000153937,6,18 090 HUF,558 HUF,+3.08%
+Array Technologies Ord Shs,US04271T1007,1,18.21 USD,-11.2 USD,-61.5%
+
+Create a professional report in PDF format (use your skill) to explain the portfolio update considering the changes. Use pie charts, diagrams and other visual elements to explain the updates.
+Send the summary of the PDF document to jovadker@microsoft.com (do not attach the PDF itself).

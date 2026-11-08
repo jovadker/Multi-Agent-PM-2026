@@ -1,0 +1,8 @@
+.venv/
+.azure/
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+stocktrader-agent/skills/
+portfolio-manager-agent/skills/
