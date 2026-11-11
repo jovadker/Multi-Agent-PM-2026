@@ -56,7 +56,7 @@ async def main() -> None:
         credential=credential,
     )
 
-    recipient = os.environ.get("EMAIL_RECIPIENT", "jovadker@microsoft.com")
+    recipient = os.environ.get("EMAIL_RECIPIENT", "admin@Caldova98029632.onmicrosoft.com")
     agent = Agent(
         client=client,
         name="PortfolioManager",
