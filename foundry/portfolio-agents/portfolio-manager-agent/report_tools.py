@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import base64
 import json
 import os
 import re
@@ -194,3 +195,25 @@ def generate_pdf_report(markdown: str, filename: str, title: str) -> str:
     if result.returncode != 0 or not pdf_path.exists():
         return f"error: PDF was not created: {(result.stderr or result.stdout).strip()}"
     return f"PDF created: {pdf_path}\n{result.stdout.strip()}"
+
+
+@tool(name="get_pdf_attachment", approval_mode="never_require")
+def get_pdf_attachment(filename: str) -> str:
+    """Return the generated PDF as a JSON email attachment ({name, contentType, contentBytes}) with base64 content.
+
+    Pass the returned JSON object unchanged as one element of the "attachments" array of the e-mail tool.
+    The mail tool runs outside this sandbox, so a file path cannot be attached; the bytes must be inlined.
+    """
+    path = reports_dir() / safe_name(filename, ".pdf")
+    if not path.exists():
+        return f"error: {path} does not exist; create it with generate_pdf_report first."
+    data = path.read_bytes()
+    if len(data) > 3_000_000:
+        return f"error: PDF is {len(data)} bytes, too large to attach; regenerate it with fewer or smaller charts."
+    return json.dumps(
+        {
+            "name": path.name,
+            "contentType": "application/pdf",
+            "contentBytes": base64.b64encode(data).decode("ascii"),
+        }
+    )

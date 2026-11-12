@@ -14,7 +14,7 @@ from agent_framework_foundry_hosting import FoundryToolbox, ResponsesHostServer
 from azure.identity import DefaultAzureCredential
 from dotenv import load_dotenv
 
-from report_tools import classify_portfolio, generate_pdf_report, render_chart
+from report_tools import classify_portfolio, generate_pdf_report, get_pdf_attachment, render_chart
 
 load_dotenv()
 
@@ -62,7 +62,7 @@ async def main() -> None:
         name="PortfolioManager",
         description="Portfolio manager facilitating the trader and investor agents",
         instructions=f"{INSTRUCTIONS}\nEMAIL_RECIPIENT: {recipient}",
-        tools=[trader, investor, classify_portfolio, render_chart, generate_pdf_report, email_tools],
+        tools=[trader, investor, classify_portfolio, render_chart, generate_pdf_report, get_pdf_attachment, email_tools],
         default_options={"store": False, "reasoning": {"effort": "low"}},
     )
 
