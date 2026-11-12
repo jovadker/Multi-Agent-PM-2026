@@ -8,17 +8,25 @@ import asyncio
 import os
 from pathlib import Path
 
-from agent_framework import Agent
+from agent_framework import Agent, FunctionInvocationContext, function_middleware
 from agent_framework.foundry import FoundryAgent, FoundryChatClient
 from agent_framework_foundry_hosting import FoundryToolbox, ResponsesHostServer
 from azure.identity import DefaultAzureCredential
 from dotenv import load_dotenv
 
-from report_tools import classify_portfolio, generate_pdf_report, get_pdf_attachment, render_chart
+from report_tools import classify_portfolio, generate_pdf_report, get_pdf_attachment, inject_attachment_bytes, render_chart
 
 load_dotenv()
 
 INSTRUCTIONS = (Path(__file__).parent / "instructions.txt").read_text(encoding="utf-8").strip()
+
+
+@function_middleware
+async def attach_pdf_bytes(context: FunctionInvocationContext, call_next) -> None:
+    """Fill in the real PDF bytes for mail calls so the model never has to reproduce base64."""
+    if "SendEmail" in context.function.name:
+        inject_attachment_bytes(context.arguments)
+    await call_next()
 
 
 def hosted_agent_as_tool(project_endpoint, credential, agent_name, tool_name, description):
@@ -63,6 +71,7 @@ async def main() -> None:
         description="Portfolio manager facilitating the trader and investor agents",
         instructions=f"{INSTRUCTIONS}\nEMAIL_RECIPIENT: {recipient}",
         tools=[trader, investor, classify_portfolio, render_chart, generate_pdf_report, get_pdf_attachment, email_tools],
+        middleware=[attach_pdf_bytes],
         default_options={"store": False, "reasoning": {"effort": "low"}},
     )
 
