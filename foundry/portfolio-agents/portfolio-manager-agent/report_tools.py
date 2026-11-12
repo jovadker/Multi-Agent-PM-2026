@@ -201,44 +201,67 @@ def generate_pdf_report(markdown: str, filename: str, title: str) -> str:
 
 @tool(name="get_pdf_attachment", approval_mode="never_require")
 def get_pdf_attachment(filename: str) -> str:
-    """Return the attachment descriptor ({name, contentType, contentBytes}) of a generated PDF.
+    """Prepare a generated PDF for e-mailing and return the two values to put into the mail attachment.
 
-    Pass the returned JSON object unchanged as one element of the "attachments" array of the e-mail tool.
-    contentBytes is a placeholder; the real base64 content is inserted automatically when the mail is sent,
-    so never write, shorten or alter it.
+    Use the returned file name as the attachment's name field and the returned placeholder as the attachment's
+    content (base64 bytes) field, using the exact field names of the e-mail tool's schema. The real bytes are
+    inserted automatically when the mail is sent, so never write, shorten or alter the placeholder.
     """
     path = reports_dir() / safe_name(filename, ".pdf")
     if not path.exists():
         return f"error: {path} does not exist; create it with generate_pdf_report first."
-    return json.dumps({"name": path.name, "contentType": "application/pdf", "contentBytes": ATTACHMENT_PLACEHOLDER})
+    return json.dumps({"file_name": path.name, "content_placeholder": ATTACHMENT_PLACEHOLDER, "content_type": "application/pdf"})
 
 
-def inject_attachment_bytes(arguments) -> None:
-    """Replace placeholder contentBytes in mail-tool arguments with the real base64 of the PDF.
+def _find_key(mapping: dict, *needles: str, exclude: str = "") -> str | None:
+    for key in mapping:
+        lowered = str(key).lower()
+        if all(n in lowered for n in needles) and not (exclude and exclude in lowered):
+            return key
+    return None
+
+
+def inject_attachment_bytes(arguments) -> list[str]:
+    """Replace the placeholder content in mail-tool attachments with the real base64 of the PDF.
 
     The model must not copy base64 itself: long base64 strings get truncated or altered, which corrupts the PDF.
+    Field names are matched case-insensitively because connector schemas differ (name/Name, contentBytes/ContentBytes).
+    Returns a list of diagnostic messages for logging.
     """
-    attachments = arguments.get("attachments") if hasattr(arguments, "get") else getattr(arguments, "attachments", None)
+    notes: list[str] = []
+    getter = arguments if isinstance(arguments, dict) else getattr(arguments, "__dict__", None)
+    if not hasattr(arguments, "keys") and getter is None:
+        return ["arguments have an unsupported type " + type(arguments).__name__]
+    source = arguments if hasattr(arguments, "keys") else getter
+    key = _find_key(source, "attach")
+    notes.append(f"argument keys: {list(source.keys())}")
+    if key is None:
+        return notes + ["no attachments argument present"]
+    attachments = source[key]
     was_text = isinstance(attachments, str)
     if was_text:
         try:
             attachments = json.loads(attachments)
         except ValueError:
-            return
+            return notes + ["attachments is not valid JSON"]
     if isinstance(attachments, dict):
         attachments = [attachments]
     if not isinstance(attachments, list):
-        return
+        return notes + ["attachments has an unsupported shape"]
     for item in attachments:
-        if not isinstance(item, dict) or not item.get("name"):
+        if not isinstance(item, dict):
             continue
-        path = reports_dir() / safe_name(item["name"], ".pdf")
-        if path.exists():
-            item["contentBytes"] = base64.b64encode(path.read_bytes()).decode("ascii")
-            item.setdefault("contentType", "application/pdf")
-    if was_text:
-        attachments = json.dumps(attachments)
-    if hasattr(arguments, "__setitem__"):
-        arguments["attachments"] = attachments
-    else:
-        setattr(arguments, "attachments", attachments)
+        name_key = _find_key(item, "name")
+        content_key = _find_key(item, "content", exclude="type") or _find_key(item, "bytes")
+        if name_key is None or not item.get(name_key):
+            notes.append(f"attachment without name, keys: {list(item.keys())}")
+            continue
+        path = reports_dir() / safe_name(str(item[name_key]), ".pdf")
+        if not path.exists():
+            notes.append(f"{path} not found")
+            continue
+        content_key = content_key or "contentBytes"
+        item[content_key] = base64.b64encode(path.read_bytes()).decode("ascii")
+        notes.append(f"injected {path.stat().st_size} bytes into '{content_key}' of '{item[name_key]}'")
+    source[key] = json.dumps(attachments) if was_text else attachments
+    return notes

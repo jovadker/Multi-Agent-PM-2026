@@ -5,6 +5,7 @@ https://learn.microsoft.com/en-us/agent-framework/journey/agents-as-tools
 """
 
 import asyncio
+import logging
 import os
 from pathlib import Path
 
@@ -16,6 +17,8 @@ from dotenv import load_dotenv
 
 from report_tools import classify_portfolio, generate_pdf_report, get_pdf_attachment, inject_attachment_bytes, render_chart
 
+logger = logging.getLogger(__name__)
+
 load_dotenv()
 
 INSTRUCTIONS = (Path(__file__).parent / "instructions.txt").read_text(encoding="utf-8").strip()
@@ -25,7 +28,8 @@ INSTRUCTIONS = (Path(__file__).parent / "instructions.txt").read_text(encoding="
 async def attach_pdf_bytes(context: FunctionInvocationContext, call_next) -> None:
     """Fill in the real PDF bytes for mail calls so the model never has to reproduce base64."""
     if "SendEmail" in context.function.name:
-        inject_attachment_bytes(context.arguments)
+        for note in inject_attachment_bytes(context.arguments):
+            logger.info('attach_pdf_bytes: %s', note)
     await call_next()
 
 

@@ -6,6 +6,14 @@ import pytest
 MANAGER = Path(__file__).resolve().parents[1] / "portfolio-manager-agent"
 
 
+def test_manager_module_loads(monkeypatch):
+    monkeypatch.syspath_prepend(str(MANAGER))
+    spec = importlib.util.spec_from_file_location("portfolio_manager_main", MANAGER / "main.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    assert callable(module.main)
+
+
 @pytest.fixture
 def report_tools(tmp_path, monkeypatch):
     monkeypatch.setenv("REPORTS_DIR", str(tmp_path))
